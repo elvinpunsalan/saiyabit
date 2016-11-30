@@ -1,5 +1,6 @@
 class Design < ApplicationRecord
   validates :name, presence: true
 
-  has_and_belongs_to_many :devices
+  has_many :cases
+  has_many :devices, through: :cases
 end
