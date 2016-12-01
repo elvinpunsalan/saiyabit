@@ -5,8 +5,10 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Deviecs</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +16,20 @@
   <tbody>
     <% @designs.each do |design| %>
       <tr>
+        <td><%= image_tag 'designs/' + design.image %></td>
         <td><%= design.name %></td>
         <td><%= design.description %></td>
-        <td><%= design.image %></td>
+        <td>
+          <% if design.devices.present? %>
+            <ul>
+              <% design.devices.each do |device| %>
+                <li><%= device.name %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            None
+          <% end %>
+        </td>
         <td><%= link_to 'Show', design %></td>
         <td><%= link_to 'Edit', edit_design_path(design) %></td>
         <td><%= link_to 'Destroy', design, method: :delete, data: { confirm: 'Are you sure?' } %></td>

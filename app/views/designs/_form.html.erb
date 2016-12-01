@@ -23,7 +23,12 @@
 
   <div class="field">
     <%= f.label :image %>
-    <%= f.text_area :image %>
+    <%= f.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :devices %>
+    <%= f.collection_check_boxes :device_ids, @devices, :id, :name %>
   </div>
 
   <div class="actions">

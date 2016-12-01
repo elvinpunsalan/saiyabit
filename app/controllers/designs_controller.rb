@@ -15,16 +15,19 @@ class DesignsController < ApplicationController
   # GET /designs/new
   def new
     @design = Design.new
+    @devices = Device.all
   end
 
   # GET /designs/1/edit
   def edit
+    @devices = Device.all
   end
 
   # POST /designs
   # POST /designs.json
   def create
     @design = Design.new(design_params)
+    @devices = Device.all
 
     respond_to do |format|
       if @design.save
@@ -40,6 +43,8 @@ class DesignsController < ApplicationController
   # PATCH/PUT /designs/1
   # PATCH/PUT /designs/1.json
   def update
+    @devices = Device.all
+
     respond_to do |format|
       if @design.update(design_params)
         format.html { redirect_to @design, notice: 'Design was successfully updated.' }
@@ -69,6 +74,6 @@ class DesignsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def design_params
-      params.require(:design).permit(:name, :description, :image)
+      params.require(:design).permit(:name, :description, :image, device_ids: [])
     end
 end
