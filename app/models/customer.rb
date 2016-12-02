@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
   validates :email, uniqueness: true, email_format: true
 
   belongs_to :province
+  has_many :orders
 end
