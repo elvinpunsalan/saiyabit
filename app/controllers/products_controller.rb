@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+
+    if params[:search]
+      @design = Design.where("name LIKE ?", "%#{params[:search]}%")
+      @products = Product.where(design: @design)
+    end
   end
 
   def show

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'finder#index'
 
+  resources :products, only: [:index]
   resources :customers, only: [:show, :new, :create, :edit, :update]
 
   get 'phones' => 'finder#phones', as: 'phones'
