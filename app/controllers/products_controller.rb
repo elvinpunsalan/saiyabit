@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
     @products = Product.all
 
     if params[:search]
-      @design = Design.where("name LIKE ?", "%#{params[:search]}%")
+      @design = Design.where("name LIKE ?", "%#{params[:search]}%").order("created_at DESC")
       @products = Product.where(design: @design)
     end
   end

@@ -6,7 +6,7 @@ ActiveAdmin.register Design do
       input :name
       input :description
       input :image, hint: f.design.image? ? image_tag(f.design.image.url(:thumb)) : content_tag(:span, "Upload JPG/PNG/GIF image")
-      input :device_ids, as: :check_boxes, collection: Device.all
+      input :device_ids, as: :check_boxes, collection: Device.all, label: "Devices"
     end
     f.actions
   end
