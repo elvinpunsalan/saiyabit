@@ -1,6 +1,7 @@
 class Design < ApplicationRecord
-  validates :name, :image, presence: true
+  has_attached_file :image, styles: { :medium => "300x300#", :thumb => "200x200#" }
+  validates :name, presence: true
 
-  has_many :cases
-  has_many :devices, through: :cases
+  has_many :products
+  has_many :devices, through: :products
 end

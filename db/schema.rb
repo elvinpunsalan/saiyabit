@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202072402) do
+ActiveRecord::Schema.define(version: 20161202151102) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -43,15 +43,6 @@ ActiveRecord::Schema.define(version: 20161202072402) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "cases", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "device_id"
-    t.integer  "design_id"
-    t.index ["design_id"], name: "index_cases_on_design_id"
-    t.index ["device_id"], name: "index_cases_on_device_id"
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
@@ -69,9 +60,12 @@ ActiveRecord::Schema.define(version: 20161202072402) do
   create_table "designs", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "image"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -85,10 +79,10 @@ ActiveRecord::Schema.define(version: 20161202072402) do
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "case_id"
+    t.integer  "product_id"
     t.integer  "order_id"
-    t.index ["case_id"], name: "index_line_items_on_case_id"
     t.index ["order_id"], name: "index_line_items_on_order_id"
+    t.index ["product_id"], name: "index_line_items_on_product_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -106,6 +100,15 @@ ActiveRecord::Schema.define(version: 20161202072402) do
     t.datetime "updated_at",  null: false
     t.integer  "customer_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "device_id"
+    t.integer  "design_id"
+    t.index ["design_id"], name: "index_products_on_design_id"
+    t.index ["device_id"], name: "index_products_on_device_id"
   end
 
   create_table "provinces", force: :cascade do |t|

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'coffee-script-source', '1.8.0'
 gem 'validates_email_format_of'
 gem 'bcrypt', '~> 3.1.7'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 # Active Admin stuff
 gem 'activeadmin', github: 'activeadmin'
