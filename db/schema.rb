@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201041913) do
+ActiveRecord::Schema.define(version: 20161202035312) do
 
   create_table "cases", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "device_id"
     t.integer  "design_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "province_id"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "password_digest"
+    t.index ["province_id"], name: "index_customers_on_province_id"
   end
 
   create_table "designs", force: :cascade do |t|
@@ -49,6 +64,15 @@ ActiveRecord::Schema.define(version: 20161201041913) do
     t.datetime "updated_at", null: false
     t.integer  "device_id"
     t.index ["device_id"], name: "index_models_on_device_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "gst_rate"
+    t.decimal  "pst_rate"
+    t.decimal  "hst_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

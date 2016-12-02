@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @province.name %>
+</p>
+
+<% if !@province.gst_rate.nil? && @province.gst_rate != 0 %>
+  <p>
+    <strong>Gst rate:</strong>
+    <%= @province.gst_rate %>
+  </p>
+<% end %>
+
+<% if !@province.pst_rate.nil? && @province.pst_rate != 0 %>
+  <p>
+    <strong>Pst rate:</strong>
+    <%= @province.pst_rate %>
+  </p>
+<% end %>
+
+<% if !@province.hst_rate.nil? && @province.hst_rate != 0 %>
+  <p>
+    <strong>Hst rate:</strong>
+    <%= @province.hst_rate %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_province_path(@province) %> |
+<%= link_to 'Back', provinces_path %>
