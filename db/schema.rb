@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202060600) do
+ActiveRecord::Schema.define(version: 20161202063403) do
 
   create_table "cases", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "device_id"
     t.integer  "design_id"
+    t.index ["design_id"], name: "index_cases_on_design_id"
+    t.index ["device_id"], name: "index_cases_on_device_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -41,13 +43,6 @@ ActiveRecord::Schema.define(version: 20161202060600) do
     t.string   "image"
   end
 
-  create_table "device_designs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "device_id"
-    t.integer  "design_id"
-  end
-
   create_table "devices", force: :cascade do |t|
     t.string   "name"
     t.decimal  "price"
@@ -59,6 +54,10 @@ ActiveRecord::Schema.define(version: 20161202060600) do
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "case_id"
+    t.integer  "order_id"
+    t.index ["case_id"], name: "index_line_items_on_case_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -72,8 +71,10 @@ ActiveRecord::Schema.define(version: 20161202060600) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "provinces", force: :cascade do |t|
