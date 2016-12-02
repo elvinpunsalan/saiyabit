@@ -4,6 +4,11 @@ gem 'coffee-script-source', '1.8.0'
 gem 'validates_email_format_of'
 gem 'bcrypt', '~> 3.1.7'
 
+# Active Admin stuff
+gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'devise'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
