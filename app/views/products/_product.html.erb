@@ -1,7 +1,9 @@
 <div class="product">
+
+  <p><%= image_tag product.design.image.url(:thumb) %></p>
+
   <p>
-    <strong>Name:</strong>
-    <%= product.design.name %>
+    <strong><%= product.design.name %></strong>
   </p>
 
   <p>
