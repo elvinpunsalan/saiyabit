@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 62c8130005bcd0412fe5343816d0df6fb88b14ab
+  revision: 7c81e7813e75950d111885b44d33c08358e5e46c
   specs:
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -230,7 +230,6 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.2)
-  coffee-script-source (= 1.8.0)
   devise
   inherited_resources!
   jbuilder (~> 2.5)
