@@ -12,8 +12,10 @@
     <% if current_customer %>
       Signed in as <%= current_customer.name %> | <%= link_to "Logout", '/logout' %>
     <% else %>
-      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %> | <%= link_to 'Admin', new_admin_user_session_path %>
     <% end %>
+
+    <%= render 'shared/menu' %>
   
     <%= yield %>
   </body>

@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     if params[:search]
       @design = Design.where("name LIKE ?", "%#{params[:search]}%").order("created_at DESC")
       @products = Product.where(design: @design)
+      @products = @products.where(device_id: params[:device_id]) unless params[:device_id].empty?
     end
   end
 

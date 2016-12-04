@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :customers, only: [:show, :new, :create, :edit, :update]
 
-  get 'phones' => 'finder#phones', as: 'phones'
-  get 'tablets' => 'finder#tablets', as: 'tablets'
-  get 'laptops' => 'finder#laptops', as: 'laptops'
+  get 'phones' => 'finder#phones'
+  get 'tablets' => 'finder#tablets'
+  get 'laptops' => 'finder#laptops'
 
   get '/signup' => 'customers#new'
   post '/users' => 'customers#create'

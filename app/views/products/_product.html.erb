@@ -3,7 +3,7 @@
   <p><%= link_to image_tag(product.design.image.url(:thumb)), product %></p>
 
   <p>
-    <%= link_to product.design.name, product %>
+    <%= link_to "#{product.design.name} (#{product.device.name})", product %>
   </p>
   
   <p>
