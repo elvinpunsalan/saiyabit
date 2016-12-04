@@ -44,5 +44,4 @@ ActiveAdmin.register Design do
   index as: :grid do |design|
     link_to image_tag(design.image.url(:thumb)), admin_design_path(design)
   end
-
 end

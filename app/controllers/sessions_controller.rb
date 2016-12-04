@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-
-  def new
-  end
+  def new; end
 
   def create
     customer = Customer.find_by_email(params[:email])
@@ -18,5 +16,4 @@ class SessionsController < ApplicationController
     session[:customer_id] = nil
     redirect_to '/'
   end
-
 end
