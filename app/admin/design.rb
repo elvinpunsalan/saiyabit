@@ -1,12 +1,15 @@
 ActiveAdmin.register Design do
-  permit_params :name, :description, :image, device_ids: []
+  permit_params :name, :description, :image, :remove_image, device_ids: []
 
   form multipart: true do |f|
     inputs 'Details' do
       input :name
       input :description
-      input :image, hint: f.design.image? ? image_tag(f.design.image.url(:thumb)) : content_tag(:span, "Upload JPG/PNG/GIF image")
-      input :device_ids, as: :check_boxes, collection: Device.all, label: "Devices"
+      input :image, hint: f.design.image? ? image_tag(f.design.image.url(:thumb)) : content_tag(:span, 'Upload JPG/PNG/GIF image')
+      if f.design.image?
+        input :remove_image, as: :boolean, required: false, label: 'Remove image'
+      end
+      input :device_ids, as: :check_boxes, collection: Device.all, label: 'Devices'
     end
     f.actions
   end
