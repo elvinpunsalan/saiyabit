@@ -1,4 +1,4 @@
-<h1>Products</h1>
+<h1>Search Products</h1>
 
 <% if @products.present? %>
   <div class="row">
@@ -9,5 +9,5 @@
     </div>
   </div>
 <% else %>
-  <p>Can't find any Case that match the term(s) <%= params[:search] %>.</p>
+  <p>Can't find any cases that match the term(s) <%= params[:search] %>.</p>
 <% end %>
