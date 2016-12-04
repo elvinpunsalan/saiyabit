@@ -20,11 +20,10 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
-        format.json { render :show, status: :created, location: @customer }
+        session[:user_id] = user.id
+        redirect_to '/'
       else
-        format.html { render :new }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        redirect_to '/signup'
       end
     end
   end

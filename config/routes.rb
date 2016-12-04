@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   root to: 'finder#index'
 
   resources :products, only: [:index, :show]
@@ -7,6 +9,13 @@ Rails.application.routes.draw do
   get 'phones' => 'finder#phones', as: 'phones'
   get 'tablets' => 'finder#tablets', as: 'tablets'
   get 'laptops' => 'finder#laptops', as: 'laptops'
+
+  get '/signup' => 'customers#new'
+  post '/users' => 'customers#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
