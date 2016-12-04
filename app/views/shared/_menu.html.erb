@@ -5,6 +5,7 @@
     <li class="nav-item"><%= link_to 'Phone Cases', phones_path, class: "nav-link" %></li>
     <li class="nav-item"><%= link_to 'Tablet Cases', tablets_path, class: "nav-link" %></li>
     <li class="nav-item"><%= link_to 'Laptop Cases', laptops_path, class: "nav-link" %></li>
+    <li class="nav-item"><%= link_to 'Contact', contact_show_path, class: "nav-link" %></li>
   </ul>
   <%= form_tag(products_path, :method => "get", id: "search-form", class: "form-inline float-xs-right") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control" %>

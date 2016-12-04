@@ -1,2 +1,25 @@
-<h1>Contact</h1>
+<p id="notice"><%= notice %></p>
+<div class="card">
+  <h2 class="card-title">Contact</h2>
 
+  <p class="card-text">
+    <strong>Name:</strong>
+    <%= @contact.name %>
+  </p>
+
+  <p class="card-text">
+    <strong>Phone:</strong>
+    <%= @contact.phone %>
+  </p>
+
+  <p class="card-text">
+    <strong>Email:</strong>
+    <%= @contact.email %>
+  </p>
+
+  <p class="card-text">
+    <strong>Notes:</strong>
+    <%= @contact.notes %>
+  </p>
+
+</div>
