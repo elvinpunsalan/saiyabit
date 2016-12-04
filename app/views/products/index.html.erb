@@ -1,9 +1,13 @@
-<%= render 'shared/search' %>
-
 <h1>Products</h1>
 
 <% if @products.present? %>
-  <%= render @products %>
+  <div class="row">
+    <div class="card-deck-wrapper">
+      <div clas="card-deck">
+        <%= render @products %>
+      </div>
+    </div>
+  </div>
 <% else %>
   <p>Can't find any Case that match the term(s) <%= params[:search] %>.</p>
 <% end %>

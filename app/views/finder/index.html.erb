@@ -1,12 +1,28 @@
-<%= render 'shared/search' %>
-
 <h1>Home</h1>
 
 <h2>Phone Cases</h2>
-<%= render @phones %>
+<div class="row">
+  <div class="card-deck-wrapper">
+    <div clas="card-deck">
+      <%= render @phones %>
+    </div>
+  </div>
+</div>
 
 <h2>Tablet Cases</h2>
-<%= render @tablets %>
+<div class="row">
+  <div class="card-deck-wrapper">
+    <div clas="card-deck">
+      <%= render @tablets %>
+    </div>
+  </div>
+</div>
 
 <h2>Laptop Cases</h2>
-<%= render @laptops %>
+<div class="row">
+  <div class="card-deck-wrapper">
+    <div clas="card-deck">
+      <%= render @laptops %>
+    </div>
+  </div>
+</div>
