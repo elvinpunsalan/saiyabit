@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/show'
+
   get 'sessions/new'
 
   root to: 'finder#index'

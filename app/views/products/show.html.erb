@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
+<div class="card">
+  <h2 class="card-title"><%= "#{@product.design.name} (#{@product.device.name})" %></h2>
+  <p><%= image_tag @product.design.image.url(:original), class: "card-img img-fluid d-block" %></p>
 
-<h2><%= "#{@product.design.name} (#{@product.device.name})" %></h2>
+  <p class="card-text">
+    <strong>Description:</strong>
+    <%= @product.design.description %>
+  </p>
+  <p>
+    <%= select_tag :model_id, options_from_collection_for_select(Model.where(device: @product.device), :id, :name, params[:device_id]), include_blank: false, class: "form-control" %>
+  </p>
 
-<p>
-  <%= image_tag @product.design.image.url(:original) %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.design.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.device.price %>
-</p>
+  <p class="card-text">
+    <strong>Price:</strong>
+    <%= number_to_currency(@product.device.price) %>
+  </p>
+</div>
