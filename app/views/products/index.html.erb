@@ -3,5 +3,5 @@
 <% if @products.present? %>
   <%= render @products %>
 <% else %>
-  <p>Can't find any Case names containing the term(s) <%= params[:search] %>.</p>
+  <p>Can't find any Case that match the term(s) <%= params[:search] %>.</p>
 <% end %>

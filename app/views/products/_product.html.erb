@@ -1,23 +1,12 @@
 <div class="product">
 
-  <p><%= image_tag product.design.image.url(:thumb) %></p>
+  <p><%= link_to image_tag(product.design.image.url(:thumb)), product %></p>
 
   <p>
-    <strong><%= product.design.name %></strong>
+    <%= link_to product.design.name, product %>
   </p>
-
+  
   <p>
-    <strong>Device:</strong>
-    <%= product.device.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= product.design.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= product.device.price %>
+    <strong><%= number_to_currency(product.device.price) %></strong>
   </p>
 </div>

@@ -1,6 +1,12 @@
 class FinderController < ApplicationController
   def index
-    @products = Product.all
+    @phone = Device.where(name: 'Phone')
+
+    @phones = Product.where(device: @phone)
+
+    @tablet = Device.where(name: 'Tablet')
+
+    @tablets = Product.where(device: @tablet)
   end
 
   def phones

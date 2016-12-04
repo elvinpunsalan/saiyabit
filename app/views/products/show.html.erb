@@ -1,2 +1,17 @@
-<h1>Cases#show</h1>
-<p>Find me in app/views/cases/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @product.design.image.url(:original) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @product.design.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @product.design.description %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @product.device.price %>
+</p>
