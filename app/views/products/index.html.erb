@@ -1,6 +1,7 @@
 <h1>Search Products</h1>
 
 <% if @products.present? %>
+  <%= paginate @products %>
   <div class="row">
     <div class="card-deck-wrapper">
       <div clas="card-deck">

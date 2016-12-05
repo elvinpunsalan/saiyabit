@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
       @products = Product.where(design: @design)
       @products = @products.where(device_id: params[:device_id]) unless params[:device_id].empty?
     end
+
+    @products = @products.page(params[:page]).per(3)
   end
 
   def show; end

@@ -6,14 +6,14 @@ class FinderController < ApplicationController
   end
 
   def phones
-    @products = Product.phones
+    @products = Product.phones.page(params[:page]).per(3)
   end
 
   def tablets
-    @products = Product.tablets
+    @products = Product.tablets.page(params[:page]).per(3)
   end
 
   def laptops
-    @products = Product.laptops
+    @products = Product.laptops.page(params[:page]).per(3)
   end
 end
